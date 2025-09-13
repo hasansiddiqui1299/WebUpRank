@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebUpRank - Premium Web Design & Digital Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="webuprank.style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left Section: Logo + Menu -->
+            <div class="nav-left">
+                <!-- Logo Section -->
+                <a href="#" class="nav-logo" onclick="showPage('home')">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span>WebUpRank</span>
+                </a>
+                
+                <!-- Navigation Menu -->
+                <ul class="nav-menu hidden lg:flex">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    
+                    <!-- Services Dropdown -->
+                    <li class="relative group">
+                        <a href="#" class="nav-link flex items-center" data-page="services">
+                            Services
+                            <i class="fas fa-chevron-down ml-1 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-full left-0 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                            <div class="glass p-6 rounded-2xl shadow-2xl mt-2 border border-teal-500/20">
+                                <div class="grid gap-4">
+                                    <!-- Development Services -->
+                                    <div>
+                                        <h4 class="text-teal-400 font-bold text-sm uppercase mb-3 flex items-center">
+                                            <i class="fas fa-code mr-2"></i>
+                                            Development
+                                        </h4>
+                                        <div class="space-y-2">
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-teal-500/10 transition-colors" data-page="web-dev">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-code text-teal-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">Web Development</div>
+                                                        <div class="text-xs text-gray-400">Custom websites & apps</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-teal-500/10 transition-colors" data-page="services">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-mobile-alt text-teal-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">Mobile Development</div>
+                                                        <div class="text-xs text-gray-400">iOS & Android apps</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-teal-500/10 transition-colors" data-page="services">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-shopping-cart text-teal-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">E-commerce Solutions</div>
+                                                        <div class="text-xs text-gray-400">Online stores & platforms</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Marketing Services -->
+                                    <div class="border-t border-gray-600/30 pt-4">
+                                        <h4 class="text-cyan-400 font-bold text-sm uppercase mb-3 flex items-center">
+                                            <i class="fas fa-chart-line mr-2"></i>
+                                            Marketing
+                                        </h4>
+                                        <div class="space-y-2">
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors" data-page="marketing">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-chart-line text-cyan-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">Digital Marketing</div>
+                                                        <div class="text-xs text-gray-400">SEO, PPC & social media</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors" data-page="marketing">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-search text-cyan-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">SEO Optimization</div>
+                                                        <div class="text-xs text-gray-400">Search engine ranking</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors" data-page="marketing">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-mouse-pointer text-cyan-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">PPC Campaigns</div>
+                                                        <div class="text-xs text-gray-400">Paid advertising management</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Design Services -->
+                                    <div class="border-t border-gray-600/30 pt-4">
+                                        <h4 class="text-blue-400 font-bold text-sm uppercase mb-3 flex items-center">
+                                            <i class="fas fa-palette mr-2"></i>
+                                            Design
+                                        </h4>
+                                        <div class="space-y-2">
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-blue-500/10 transition-colors" data-page="services">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-paint-brush text-blue-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">UI/UX Design</div>
+                                                        <div class="text-xs text-gray-400">User interface & experience</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item block px-3 py-2 rounded-lg hover:bg-blue-500/10 transition-colors" data-page="services">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-trademark text-blue-400 mr-3 w-4"></i>
+                                                    <div>
+                                                        <div class="font-medium">Brand Identity</div>
+                                                        <div class="text-xs text-gray-400">Logo & brand design</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- View All Services Button -->
+                                <div class="mt-6 pt-4 border-t border-gray-600/30">
+                                    <a href="#" class="dropdown-item block w-full text-center py-3 px-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105" data-page="services">
+                                        <i class="fas fa-arrow-right mr-2"></i>
+                                        View All Services
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            
+            <!-- Right Section: Theme Toggle + CTA + Mobile Menu -->
+            <div class="nav-right">
+                <div class="theme-toggle" id="themeToggle"></div>
+                <button class="btn-primary hidden lg:block" onclick="showPage('contact')">Get Started</button>
+                <div class="hamburger lg:hidden" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex flex-col items-center justify-center h-full space-y-6 px-6">
+            <a href="#" class="text-2xl nav-link" data-page="home">Home</a>
+            <a href="#" class="text-2xl nav-link" data-page="about">About</a>
+            
+            <!-- Mobile Services Dropdown -->
+            <div class="mobile-dropdown">
+                <button class="text-2xl nav-link flex items-center" id="mobileServicesToggle">
+                    Services
+                    <i class="fas fa-chevron-down ml-2 text-lg transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="mobileServicesMenu">
+                    <div class="space-y-4 mt-4">
+                        <div class="text-center">
+                            <h4 class="text-teal-400 font-bold text-sm uppercase mb-3">Development</h4>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-lg nav-link" data-page="web-dev">Web Development</a>
+                                <a href="#" class="block text-lg nav-link" data-page="services">Mobile Development</a>
+                                <a href="#" class="block text-lg nav-link" data-page="services">E-commerce</a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-teal-400 font-bold text-sm uppercase mb-3">Marketing</h4>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-lg nav-link" data-page="marketing">Digital Marketing</a>
+                                <a href="#" class="block text-lg nav-link" data-page="marketing">SEO Optimization</a>
+                                <a href="#" class="block text-lg nav-link" data-page="marketing">PPC Campaigns</a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-teal-400 font-bold text-sm uppercase mb-3">Design</h4>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-lg nav-link" data-page="services">UI/UX Design</a>
+                                <a href="#" class="block text-lg nav-link" data-page="services">Brand Identity</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="text-2xl nav-link" data-page="blog">Blog</a>
+            <a href="#" class="text-2xl nav-link" data-page="contact">Contact Us</a>
+            <a href="#" class="text-2xl nav-link" data-page="portfolio">Portfolio</a>
+            <button class="btn-primary mt-8" onclick="showPage('contact')">Get Started</button>
+        </div>
+    </div>
+    
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+            <div class="floating-elements">
+                <div class="floating-element text-4xl" style="left: 10%; animation-delay: 0s;">💻</div>
+                <div class="floating-element text-3xl" style="left: 20%; animation-delay: 2s;">🚀</div>
+                <div class="floating-element text-4xl" style="left: 80%; animation-delay: 4s;">⚡</div>
+                <div class="floating-element text-3xl" style="left: 70%; animation-delay: 6s;">🎯</div>
+                <div class="floating-element text-4xl" style="left: 30%; animation-delay: 8s;">💡</div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="hero-title mb-8 fade-up">
+                    Elevate Your
+                    <br>
+                    <span class="text-teal-400">Web Ranking</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-300 fade-up">
+                    We transform businesses through cutting-edge web development and strategic digital marketing solutions that drive real results.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center fade-up">
+                    <button class="btn-primary text-lg px-10 py-5" onclick="showPage('services')">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore Services
+                    </button>
+                    <button class="btn-secondary text-lg px-10 py-5">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Demo
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 fade-up">
+                    <div class="glass-card p-6">
+                        <div class="counter" data-target="150">0</div>
+                        <p class="text-gray-400">Projects Completed</p>
+                    </div>
+                    <div class="glass-card p-6">
+                        <div class="counter" data-target="98">0</div>
+                        <p class="text-gray-400">Client Satisfaction</p>
+                    </div>
+                    <div class="glass-card p-6">
+                        <div class="counter" data-target="5">0</div>
+                        <p class="text-gray-400">Years Experience</p>
+                    </div>
+                    <div class="glass-card p-6">
+                        <div class="counter" data-target="24">0</div>
+                        <p class="text-gray-400">Team Members</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Preview -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 fade-up">Our Expertise</h2>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto fade-up">
+                        Comprehensive digital solutions tailored to your business needs
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 service-card fade-up">
+                        <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                            <i class="fas fa-code text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                        <p class="text-gray-400 mb-6">Custom websites and applications built with modern technologies</p>
+                        <button class="text-teal-400 hover:text-teal-300 transition-colors font-semibold" onclick="showPage('web-dev')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="glass-card p-8 service-card fade-up">
+                        <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                            <i class="fas fa-chart-line text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
+                        <p class="text-gray-400 mb-6">Strategic marketing campaigns that drive growth and engagement</p>
+                        <button class="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold" onclick="showPage('marketing')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="glass-card p-8 service-card fade-up">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                            <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Mobile Apps</h3>
+                        <p class="text-gray-400 mb-6">Native and cross-platform mobile applications</p>
+                        <button class="text-blue-400 hover:text-blue-300 transition-colors font-semibold" onclick="showPage('services')">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">About WebUpRank</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        We're a passionate team of digital innovators dedicated to transforming businesses through technology
+                    </p>
+                </div>
+                
+                <!-- Mission & Vision -->
+                <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                    <div class="fade-up">
+                        <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            To empower businesses with cutting-edge digital solutions that drive growth, enhance user experiences, and create lasting impact in the digital landscape.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            We believe in the power of technology to transform ideas into reality and help businesses reach their full potential.
+                        </p>
+                    </div>
+                    
+                    <div class="fade-up">
+                        <h2 class="text-3xl font-bold mb-6">Our Vision</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            To be the leading digital agency that bridges the gap between innovative technology and business success, creating digital experiences that inspire and engage.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            We envision a future where every business can leverage the full power of digital transformation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Team Section -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-center mb-16 fade-up">Meet Our Team</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="glass-card p-6 text-center fade-up">
+                            <div class="w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">JD</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">John Doe</h3>
+                            <p class="text-green-400 mb-3">CEO & Founder</p>
+                            <p class="text-gray-400 text-sm">Visionary leader with 10+ years in tech</p>
+                        </div>
+                        
+                        <div class="glass-card p-6 text-center fade-up">
+                            <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">SM</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Sarah Miller</h3>
+                            <p class="text-blue-400 mb-3">Lead Developer</p>
+                            <p class="text-gray-400 text-sm">Full-stack expert and tech innovator</p>
+                        </div>
+                        
+                        <div class="glass-card p-6 text-center fade-up">
+                            <div class="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">MJ</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Mike Johnson</h3>
+                            <p class="text-purple-400 mb-3">Marketing Director</p>
+                            <p class="text-gray-400 text-sm">Digital marketing strategist</p>
+                        </div>
+                        
+                        <div class="glass-card p-6 text-center fade-up">
+                            <div class="w-24 h-24 bg-gradient-to-r from-pink-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">EW</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Emily Wilson</h3>
+                            <p class="text-pink-400 mb-3">UX/UI Designer</p>
+                            <p class="text-gray-400 text-sm">Creative design specialist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 text-center fade-up">
+                        <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Award Winning</h3>
+                        <p class="text-gray-400">Recognized for excellence in digital innovation</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 text-center fade-up">
+                        <i class="fas fa-users text-4xl text-green-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Client Focused</h3>
+                        <p class="text-gray-400">Dedicated to delivering exceptional results</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 text-center fade-up">
+                        <i class="fas fa-rocket text-4xl text-blue-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Innovation Driven</h3>
+                        <p class="text-gray-400">Always pushing the boundaries of technology</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Our Services</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Comprehensive digital solutions designed to elevate your business
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Web Development -->
+                    <div class="glass-card p-10 service-card fade-up">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-2xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold">Web Development</h2>
+                        </div>
+                        <p class="text-gray-400 text-lg mb-8">
+                            Custom websites and web applications built with cutting-edge technologies and best practices.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Responsive Design
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Modern Frameworks
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Performance Optimization
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                SEO Ready
+                            </li>
+                        </ul>
+                        <button class="btn-primary" onclick="showPage('web-dev')">
+                            Learn More
+                        </button>
+                    </div>
+                    
+                    <!-- Digital Marketing -->
+                    <div class="glass-card p-10 service-card fade-up">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-2xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold">Digital Marketing</h2>
+                        </div>
+                        <p class="text-gray-400 text-lg mb-8">
+                            Strategic marketing campaigns that drive traffic, engagement, and conversions.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                SEO Optimization
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                PPC Campaigns
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Social Media Marketing
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Content Strategy
+                            </li>
+                        </ul>
+                        <button class="btn-primary" onclick="showPage('marketing')">
+                            Learn More
+                        </button>
+                    </div>
+                    
+                    <!-- Mobile Development -->
+                    <div class="glass-card p-10 service-card fade-up">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold">Mobile Development</h2>
+                        </div>
+                        <p class="text-gray-400 text-lg mb-8">
+                            Native and cross-platform mobile applications for iOS and Android.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                iOS & Android
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Cross-Platform
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                UI/UX Design
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                App Store Optimization
+                            </li>
+                        </ul>
+                        <button class="btn-primary" onclick="showPage('contact')">
+                            Get Quote
+                        </button>
+                    </div>
+                    
+                    <!-- E-commerce -->
+                    <div class="glass-card p-10 service-card fade-up">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-shopping-cart text-2xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold">E-commerce Solutions</h2>
+                        </div>
+                        <p class="text-gray-400 text-lg mb-8">
+                            Complete e-commerce platforms that drive sales and enhance customer experience.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Custom Stores
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Payment Integration
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Inventory Management
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-green-400 mr-3"></i>
+                                Analytics & Reporting
+                            </li>
+                        </ul>
+                        <button class="btn-primary" onclick="showPage('contact')">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- WEB DEVELOPMENT PAGE -->
+    <div id="web-dev" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Web Development</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Building modern, scalable, and high-performance web solutions
+                    </p>
+                </div>
+                
+                <!-- Process -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-center mb-16 fade-up">Our Development Process</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="glass-card p-8 text-center fade-up">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Discovery</h3>
+                            <p class="text-gray-400">Understanding your requirements and goals</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 text-center fade-up">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Design</h3>
+                            <p class="text-gray-400">Creating wireframes and visual designs</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 text-center fade-up">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Development</h3>
+                            <p class="text-gray-400">Building with modern technologies</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 text-center fade-up">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">4</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Launch</h3>
+                            <p class="text-gray-400">Testing, deployment, and ongoing support</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technologies -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-center mb-16 fade-up">Technologies We Use</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="glass-card p-8 fade-up">
+                            <h3 class="text-2xl font-bold mb-6">Frontend</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fab fa-react text-blue-400 text-xl mr-3"></i>
+                                    <span>React.js</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-vuejs text-green-400 text-xl mr-3"></i>
+                                    <span>Vue.js</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-angular text-red-400 text-xl mr-3"></i>
+                                    <span>Angular</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-js text-yellow-400 text-xl mr-3"></i>
+                                    <span>TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <h3 class="text-2xl font-bold mb-6">Backend</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fab fa-node-js text-green-400 text-xl mr-3"></i>
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-python text-blue-400 text-xl mr-3"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-php text-purple-400 text-xl mr-3"></i>
+                                    <span>PHP</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-database text-orange-400 text-xl mr-3"></i>
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <h3 class="text-2xl font-bold mb-6">Tools</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fab fa-git-alt text-orange-400 text-xl mr-3"></i>
+                                    <span>Git</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-docker text-blue-400 text-xl mr-3"></i>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-aws text-yellow-400 text-xl mr-3"></i>
+                                    <span>AWS</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-cloud text-gray-400 text-xl mr-3"></i>
+                                    <span>CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefits -->
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-16 fade-up">Why Choose Our Web Development?</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-tachometer-alt text-4xl text-green-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">Lightning Fast</h3>
+                            <p class="text-gray-400">Optimized for speed and performance</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-mobile-alt text-4xl text-blue-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">Mobile First</h3>
+                            <p class="text-gray-400">Responsive design for all devices</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-search text-4xl text-purple-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">SEO Optimized</h3>
+                            <p class="text-gray-400">Built for search engine visibility</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-shield-alt text-4xl text-red-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">Secure</h3>
+                            <p class="text-gray-400">Enterprise-level security measures</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-expand-arrows-alt text-4xl text-yellow-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">Scalable</h3>
+                            <p class="text-gray-400">Grows with your business needs</p>
+                        </div>
+                        
+                        <div class="glass-card p-8 fade-up">
+                            <i class="fas fa-headset text-4xl text-pink-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-4">24/7 Support</h3>
+                            <p class="text-gray-400">Ongoing maintenance and support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- DIGITAL MARKETING PAGE -->
+    <div id="marketing" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Digital Marketing</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Strategic marketing solutions that drive growth and maximize ROI
+                    </p>
+                </div>
+                
+                <!-- SEO Section -->
+                <div class="mb-20">
+                    <div class="glass-card p-12 fade-up">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-search text-2xl text-white"></i>
+                                    </div>
+                                    <h2 class="text-4xl font-bold">SEO Optimization</h2>
+                                </div>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Improve your search engine rankings and drive organic traffic with our comprehensive SEO strategies.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Keyword Research & Analysis
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        On-Page Optimization
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Technical SEO Audit
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Link Building Strategy
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <div class="glass-card p-8">
+                                    <i class="fas fa-chart-line text-6xl text-green-400 mb-4"></i>
+                                    <h3 class="text-2xl font-bold mb-2">Average Results</h3>
+                                    <div class="text-4xl font-bold text-green-400 mb-2">+250%</div>
+                                    <p class="text-gray-400">Organic Traffic Increase</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PPC Section -->
+                <div class="mb-20">
+                    <div class="glass-card p-12 fade-up">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="order-2 lg:order-1 text-center">
+                                <div class="glass-card p-8">
+                                    <i class="fas fa-mouse-pointer text-6xl text-blue-400 mb-4"></i>
+                                    <h3 class="text-2xl font-bold mb-2">Click-Through Rate</h3>
+                                    <div class="text-4xl font-bold text-blue-400 mb-2">8.5%</div>
+                                    <p class="text-gray-400">Above Industry Average</p>
+                                </div>
+                            </div>
+                            <div class="order-1 lg:order-2">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-bullhorn text-2xl text-white"></i>
+                                    </div>
+                                    <h2 class="text-4xl font-bold">PPC Campaigns</h2>
+                                </div>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Maximize your advertising ROI with targeted pay-per-click campaigns across multiple platforms.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Google Ads Management
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Facebook & Instagram Ads
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Landing Page Optimization
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        A/B Testing & Analytics
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media Marketing -->
+                <div class="mb-20">
+                    <div class="glass-card p-12 fade-up">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-share-alt text-2xl text-white"></i>
+                                    </div>
+                                    <h2 class="text-4xl font-bold">Social Media Marketing</h2>
+                                </div>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Build brand awareness and engage with your audience across all major social media platforms.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Content Strategy & Creation
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Community Management
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Influencer Partnerships
+                                    </li>
+                                    <li class="flex items-center text-gray-300">
+                                        <i class="fas fa-check text-green-400 mr-3"></i>
+                                        Social Media Analytics
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <div class="glass-card p-8">
+                                    <i class="fas fa-users text-6xl text-purple-400 mb-4"></i>
+                                    <h3 class="text-2xl font-bold mb-2">Engagement Rate</h3>
+                                    <div class="text-4xl font-bold text-purple-400 mb-2">12.3%</div>
+                                    <p class="text-gray-400">Average Across Platforms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marketing Tools -->
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-16 fade-up">Marketing Tools & Platforms</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="glass-card p-6 fade-up">
+                            <i class="fab fa-google text-4xl text-blue-400 mb-4"></i>
+                            <h3 class="text-lg font-bold">Google Analytics</h3>
+                        </div>
+                        
+                        <div class="glass-card p-6 fade-up">
+                            <i class="fab fa-facebook text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-lg font-bold">Facebook Ads</h3>
+                        </div>
+                        
+                        <div class="glass-card p-6 fade-up">
+                            <i class="fas fa-envelope text-4xl text-green-400 mb-4"></i>
+                            <h3 class="text-lg font-bold">Email Marketing</h3>
+                        </div>
+                        
+                        <div class="glass-card p-6 fade-up">
+                            <i class="fas fa-chart-bar text-4xl text-purple-400 mb-4"></i>
+                            <h3 class="text-lg font-bold">Analytics Tools</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- PORTFOLIO PAGE -->
+    <div id="portfolio" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Our Portfolio</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Showcasing our best work and successful projects
+                    </p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-16 fade-up">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                    <button class="filter-btn" data-filter="marketing">Marketing</button>
+                </div>
+                
+                <!-- Portfolio Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="web">
+                        <div class="h-64 bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Corporate Website</h3>
+                            <p class="text-gray-400 mb-4">Modern corporate website with CMS</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-green-400 text-sm">Web Development</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="mobile">
+                        <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Fitness App</h3>
+                            <p class="text-gray-400 mb-4">Cross-platform fitness tracking app</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-400 text-sm">Mobile App</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="ecommerce">
+                        <div class="h-64 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Online Store</h3>
+                            <p class="text-gray-400 mb-4">Full-featured e-commerce platform</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-400 text-sm">E-commerce</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="marketing">
+                        <div class="h-64 bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Marketing Campaign</h3>
+                            <p class="text-gray-400 mb-4">Successful digital marketing campaign</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-yellow-400 text-sm">Marketing</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="web">
+                        <div class="h-64 bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-globe text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                            <p class="text-gray-400 mb-4">Creative portfolio with animations</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-red-400 text-sm">Web Development</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item glass-card overflow-hidden fade-up" data-category="mobile">
+                        <div class="h-64 bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <i class="fas fa-gamepad text-6xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Gaming App</h3>
+                            <p class="text-gray-400 mb-4">Multiplayer mobile game</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-indigo-400 text-sm">Mobile App</span>
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- BLOG PAGE -->
+    <div id="blog" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Insights & Blog</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Latest trends, tips, and insights from the digital world
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center">
+                            <i class="fas fa-code text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-green-400 text-sm mb-2">Web Development</div>
+                            <h3 class="text-xl font-bold mb-3">The Future of Web Development</h3>
+                            <p class="text-gray-400 mb-4">Exploring upcoming trends and technologies that will shape the future of web development...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 15, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-purple-400 text-sm mb-2">Digital Marketing</div>
+                            <h3 class="text-xl font-bold mb-3">SEO Best Practices for 2024</h3>
+                            <p class="text-gray-400 mb-4">Essential SEO strategies and techniques to improve your search engine rankings...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 12, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-blue-400 text-sm mb-2">Mobile Development</div>
+                            <h3 class="text-xl font-bold mb-3">Cross-Platform vs Native Apps</h3>
+                            <p class="text-gray-400 mb-4">Comparing the pros and cons of different mobile app development approaches...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 10, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-palette text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-yellow-400 text-sm mb-2">Design</div>
+                            <h3 class="text-xl font-bold mb-3">UI/UX Design Trends</h3>
+                            <p class="text-gray-400 mb-4">Latest design trends and principles for creating engaging user experiences...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 8, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-red-400 text-sm mb-2">Security</div>
+                            <h3 class="text-xl font-bold mb-3">Web Security Best Practices</h3>
+                            <p class="text-gray-400 mb-4">Essential security measures to protect your web applications and user data...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 5, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card glass-card overflow-hidden fade-up">
+                        <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <i class="fas fa-robot text-4xl text-white"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-indigo-400 text-sm mb-2">Technology</div>
+                            <h3 class="text-xl font-bold mb-3">AI in Web Development</h3>
+                            <p class="text-gray-400 mb-4">How artificial intelligence is revolutionizing the way we build websites...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-500 text-sm">Dec 3, 2024</span>
+                                <button class="text-blue-400 hover:text-blue-300">Read More</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="pt-32 pb-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-up">Get In Touch</h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto fade-up">
+                        Ready to start your next project? Let's discuss how we can help you achieve your goals.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- Contact Form -->
+                    <div class="fade-up">
+                        <form class="glass-card p-8" id="contactForm">
+                            <h2 class="text-2xl font-bold mb-8">Send us a message</h2>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">First Name</label>
+                                    <input type="text" class="form-input w-full" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Last Name</label>
+                                    <input type="text" class="form-input w-full" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" class="form-input w-full" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium mb-2">Phone</label>
+                                <input type="tel" class="form-input w-full">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium mb-2">Service</label>
+                                <select class="form-input w-full" required>
+                                    <option value="">Select a service</option>
+                                    <option value="web-dev">Web Development</option>
+                                    <option value="mobile-dev">Mobile Development</option>
+                                    <option value="digital-marketing">Digital Marketing</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="consultation">Consultation</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="5" class="form-input w-full" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="fade-up">
+                        <div class="space-y-8">
+                            <div class="glass-card p-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Office Location</h3>
+                                </div>
+                                <p class="text-gray-400">123 Digital Street<br>Tech City, TC 12345<br>United States</p>
+                            </div>
+                            
+                            <div class="glass-card p-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Phone</h3>
+                                </div>
+                                <p class="text-gray-400">+1 (555) 123-4567<br>Mon - Fri, 9AM - 6PM</p>
+                            </div>
+                            
+                            <div class="glass-card p-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Email</h3>
+                                </div>
+                                <p class="text-gray-400">hello@webuprank.com<br>support@webuprank.com</p>
+                            </div>
+                            
+                            <div class="glass-card p-8">
+                                <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                        <i class="fab fa-facebook-f text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                        <i class="fab fa-twitter text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                        <i class="fab fa-linkedin-in text-white"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                        <i class="fab fa-instagram text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- 404 PAGE -->
+    <div id="error-404" class="page">
+        <section class="min-h-screen flex items-center justify-center">
+            <div class="container mx-auto px-6 text-center">
+                <div class="error-404 mb-8 fade-up">404</div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-up">Page Not Found</h1>
+                <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto fade-up">
+                    Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center fade-up">
+                    <button class="btn-primary" onclick="showPage('home')">
+                        <i class="fas fa-home mr-2"></i>
+                        Go Home
+                    </button>
+                    <button class="border-2 border-green-400 text-green-400 px-8 py-4 rounded-full hover:bg-green-400 hover:text-white transition-all" onclick="showPage('contact')">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Contact Support
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="bg-gradient-to-r from-gray-900 to-black border-t border-gray-800">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-lg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold text-white">WebUpRank</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Transforming businesses through innovative web development and strategic digital marketing solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="home">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="about">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="services">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="portfolio">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="blog">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="contact">
+                                <i class="fas fa-chevron-right text-xs mr-2"></i>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="web-dev">
+                                <i class="fas fa-code text-xs mr-2"></i>
+                                Web Development
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="marketing">
+                                <i class="fas fa-chart-line text-xs mr-2"></i>
+                                Digital Marketing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="services">
+                                <i class="fas fa-mobile-alt text-xs mr-2"></i>
+                                Mobile Development
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="services">
+                                <i class="fas fa-shopping-cart text-xs mr-2"></i>
+                                E-commerce Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="services">
+                                <i class="fas fa-search text-xs mr-2"></i>
+                                SEO Optimization
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center" data-page="services">
+                                <i class="fas fa-paint-brush text-xs mr-2"></i>
+                                UI/UX Design
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">Contact Info</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Address</p>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    123 Digital Street<br>
+                                    Tech City, TC 12345<br>
+                                    United States
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                <i class="fas fa-phone text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Phone</p>
+                                <p class="text-gray-400 text-sm">+1 (555) 123-4567</p>
+                                <p class="text-gray-400 text-xs">Mon - Fri, 9AM - 6PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                <i class="fas fa-envelope text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Email</p>
+                                <p class="text-gray-400 text-sm">hello@webuprank.com</p>
+                                <p class="text-gray-400 text-sm">support@webuprank.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                <i class="fas fa-clock text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Business Hours</p>
+                                <p class="text-gray-400 text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-400 text-sm">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="text-gray-400 text-sm">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter Signup -->
+            <div class="border-t border-gray-800 mt-12 pt-12">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Stay Updated</h3>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Subscribe to our newsletter and get the latest updates on web development trends, digital marketing tips, and exclusive offers.
+                    </p>
+                </div>
+                <form class="max-w-md mx-auto flex gap-4" id="newsletterForm">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email address" 
+                        class="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                        required
+                    >
+                    <button 
+                        type="submit" 
+                        class="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105"
+                    >
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 WebUpRank. All rights reserved. | Designed with ❤️ by WebUpRank Team
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300">Cookie Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Global variables
+        let currentPage = 'home';
+        
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide current page
+            document.getElementById(currentPage).classList.remove('active');
+            
+            // Show new page
+            setTimeout(() => {
+                document.getElementById(pageId).classList.add('active');
+                currentPage = pageId;
+                
+                // Update navigation
+                updateNavigation(pageId);
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Initialize page animations
+                initPageAnimations();
+                
+                // Close mobile menu
+                closeMobileMenu();
+            }, 100);
+        }
+        
+        function updateNavigation(activePageId) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === activePageId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Navigation event listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                if (pageId) {
+                    showPage(pageId);
+                }
+            });
+        });
+        
+        // Footer navigation event listeners
+        document.querySelectorAll('footer a[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                if (pageId) {
+                    showPage(pageId);
+                }
+            });
+        });
+        
+        // Dropdown navigation event listeners
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = item.getAttribute('data-page');
+                if (pageId) {
+                    showPage(pageId);
+                }
+            });
+        });
+        
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesMenu = document.getElementById('mobileServicesMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Mobile services dropdown
+        if (mobileServicesToggle && mobileServicesMenu) {
+            mobileServicesToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileServicesToggle.classList.toggle('active');
+                mobileServicesMenu.classList.toggle('active');
+            });
+        }
+        
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            if (mobileServicesToggle && mobileServicesMenu) {
+                mobileServicesToggle.classList.remove('active');
+                mobileServicesMenu.classList.remove('active');
+            }
+        }
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        let isDarkMode = true;
+        
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Portfolio filter
+        function initPortfolioFilter() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter items
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filter === 'all' || category === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Contact form
+        function initContactForm() {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simulate form submission
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = 'linear-gradient(135deg, var(--accent-green), var(--accent-blue))';
+                        submitBtn.disabled = false;
+                        form.reset();
+                    }, 2000);
+                }, 1500);
+            });
+        }
+        
+        // Newsletter form
+        function initNewsletterForm() {
+            const form = document.getElementById('newsletterForm');
+            if (!form) return;
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                const emailInput = form.querySelector('input[type="email"]');
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Subscribing...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Subscribed!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = 'linear-gradient(135deg, #14b8a6, #06b6d4)';
+                        submitBtn.disabled = false;
+                        emailInput.value = '';
+                    }, 2000);
+                }, 1500);
+            });
+        }
+        
+        // GSAP Animations
+        function initPageAnimations() {
+            // Fade up animations
+            gsap.fromTo('.fade-up', 
+                { opacity: 0, y: 50 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.8, 
+                    stagger: 0.2,
+                    ease: "power2.out"
+                }
+            );
+            
+            // Fade in animations
+            gsap.fromTo('.fade-in', 
+                { opacity: 0 },
+                { 
+                    opacity: 1, 
+                    duration: 1, 
+                    stagger: 0.1,
+                    ease: "power2.out"
+                }
+            );
+            
+            // Scale up animations
+            gsap.fromTo('.scale-up', 
+                { opacity: 0, scale: 0.8 },
+                { 
+                    opacity: 1, 
+                    scale: 1, 
+                    duration: 0.6, 
+                    stagger: 0.1,
+                    ease: "back.out(1.7)"
+                }
+            );
+        }
+        
+        // Floating elements animation
+        function createFloatingElements() {
+            const container = document.querySelector('.floating-elements');
+            if (!container) return;
+            
+            setInterval(() => {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+                element.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                element.textContent = ['💻', '🚀', '⚡', '🎯', '💡', '🌟', '🔥', '💎'][Math.floor(Math.random() * 8)];
+                
+                container.appendChild(element);
+                
+                setTimeout(() => {
+                    element.remove();
+                }, 15000);
+            }, 2000);
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+            
+            // Initialize animations
+            initPageAnimations();
+            
+            // Initialize portfolio filter
+            initPortfolioFilter();
+            
+            // Initialize contact form
+            initContactForm();
+            
+            // Initialize newsletter form
+            initNewsletterForm();
+            
+            // Start floating elements
+            createFloatingElements();
+            
+            // Animate counters when they come into view
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        counterObserver.disconnect();
+                    }
+                });
+            });
+            
+            const countersSection = document.querySelector('.counter');
+            if (countersSection) {
+                counterObserver.observe(countersSection.parentElement);
+            }
+            
+            // Scroll animations
+            ScrollTrigger.batch('.fade-up', {
+                onEnter: (elements) => {
+                    gsap.fromTo(elements, 
+                        { opacity: 0, y: 50 },
+                        { 
+                            opacity: 1, 
+                            y: 0, 
+                            duration: 0.8, 
+                            stagger: 0.2,
+                            ease: "power2.out"
+                        }
+                    );
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add some interactive effects
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            if (cursor) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            }
+        });
+        
+        // Add hover effects to cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                gsap.to(this, { scale: 1.02, duration: 0.3, ease: "power2.out" });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                gsap.to(this, { scale: 1, duration: 0.3, ease: "power2.out" });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dd9b1d4eac7aa',t:'MTc1MzQ2OTUwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
